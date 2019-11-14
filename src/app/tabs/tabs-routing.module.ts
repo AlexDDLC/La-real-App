@@ -24,6 +24,7 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../publicar/publicar.module').then(m => m.PublicarPageModule)
+              // import('../chat-person//chat-person.module').then(m => m.ChatPersonPageModule)
           }
         ]
       },

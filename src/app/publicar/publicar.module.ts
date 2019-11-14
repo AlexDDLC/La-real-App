@@ -14,4 +14,4 @@ import { PublicarPage } from './publicar.page';
   ],
   declarations: [PublicarPage]
 })
-export class PublicarPageModule {}
+export class PublicarPageModule { }
