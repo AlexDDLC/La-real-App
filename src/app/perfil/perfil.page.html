@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+
+    <ion-card-header>
+
+      <ion-avatar class="item-avatar">
+        <img src="../../assets/Imagenes/perfil.jpg">
+      </ion-avatar>
+
+      <ion-card-title text-center>
+        <h1>Génesis Marlenis Bidó Rodríguez</h1>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-row>
+        <ion-col size="6" text-center>
+          <ion-button class="botones-card" (click)="onClick()">
+            <div>
+              <ion-icon name="images"></ion-icon>
+              <div>
+                <ion-label>Publicaciones</ion-label>
+              </div>
+            </div>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="6" text-center>
+          <ion-button color="danger" class="botones-card" (click)="onClick()">
+            <div>
+              <ion-icon name="heart"></ion-icon>
+              <div>
+                <ion-label>Amigos</ion-label>
+              </div>
+            </div>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label color="primary">
+        <h1>Cuenta</h1>
+      </ion-label>
+    </ion-list-header>
+  </ion-list>
+
+  <div class="ion-margin">
+    <ion-item>
+      <div>
+        <ion-card-title>+1 (829) 897-9658</ion-card-title>
+        <div>
+          <ion-card-subtitle>Toca para cambiar el número de teléfono</ion-card-subtitle>
+        </div>
+      </div>
+    </ion-item>
+  </div>
+
+  <div class="ion-margin">
+    <ion-item>
+      <div>
+        <ion-card-title>@Alias123</ion-card-title>
+        <div>
+          <ion-card-subtitle>Alias</ion-card-subtitle>
+        </div>
+      </div>
+    </ion-item>
+  </div>
+
+  <div class="ion-margin">
+    <ion-item>
+      <div>
+        <ion-card-title>Bibliografía</ion-card-title>
+        <div>
+          <ion-card-subtitle>Escribe algo sobre ti</ion-card-subtitle>
+        </div>
+      </div>
+    </ion-item>
+  </div>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label color="primary">
+        <h1>Ajustes</h1>
+      </ion-label>
+    </ion-list-header>
+  </ion-list>
+
+  <div class="ion-margin">
+    <ion-item>
+      <ion-icon slot="start" name="notifications"></ion-icon>
+      <ion-card-title>Notificaciones</ion-card-title>
+    </ion-item>
+  </div>
+
+  <div class="ion-margin">
+    <ion-item>
+      <ion-icon slot="start" name="lock"></ion-icon>
+      <ion-card-title>Seguridad y seguridad</ion-card-title>
+    </ion-item>
+  </div>
+
+  <div class="ion-margin">
+    <ion-item>
+      <ion-icon slot="start" name="contact"></ion-icon>
+      <ion-card-title>Cuenta</ion-card-title>
+    </ion-item>
+  </div>
+
+  <div class="ion-margin">
+    <ion-item>
+      <ion-icon slot="start" name="information-circle"></ion-icon>
+      <ion-card-title>Información</ion-card-title>
+    </ion-item>
+  </div>
+
+</ion-content>
