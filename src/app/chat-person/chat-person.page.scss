@@ -1,0 +1,43 @@
+.message {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  white-space: pre-wrap;
+}
+
+.otherMessage {
+  background: #f0f0f0;
+  color: black;
+}
+
+.myMessage {
+  background: #0582ff;
+  color: #fff;
+}
+
+.otherTime {
+  color: black;
+  float: right;
+  font-size: small;
+}
+
+.myTime {
+  color: white;
+  float: right;
+  font-size: small;
+}
+
+.msgButton {
+  --padding-start: 0.5em;
+  --padding-end: 1em;
+}
+
+.msgInput {
+  width: 100%;
+  border: 1px solid var(--ion-color-medium);
+  border-radius: 10px;
+  background: #fff;
+  resize: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
