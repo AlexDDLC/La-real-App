@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
-import { IonicConfig } from '@ionic/core';
 
 @Component({
   selector: 'app-chat-person',

@@ -12,7 +12,7 @@
 
     <ion-card-header>
 
-      <ion-avatar class="item-avatar">
+      <ion-avatar class="item-avatar" (click)="changePhoto()">
         <img src="../../assets/Imagenes/perfil.jpg">
       </ion-avatar>
 
@@ -101,30 +101,37 @@
   </ion-list>
 
   <div class="ion-margin">
-    <ion-item>
+    <ion-item (click)="notifications()">
       <ion-icon slot="start" name="notifications"></ion-icon>
       <ion-card-title>Notificaciones</ion-card-title>
     </ion-item>
   </div>
 
   <div class="ion-margin">
-    <ion-item>
+    <ion-item (click)="security()">
       <ion-icon slot="start" name="lock"></ion-icon>
-      <ion-card-title>Seguridad y seguridad</ion-card-title>
+      <ion-card-title>Seguridad</ion-card-title>
     </ion-item>
   </div>
 
   <div class="ion-margin">
-    <ion-item>
+    <ion-item (click)="settingsAcount()">
       <ion-icon slot="start" name="contact"></ion-icon>
       <ion-card-title>Cuenta</ion-card-title>
     </ion-item>
   </div>
 
   <div class="ion-margin">
-    <ion-item>
+    <ion-item (click)="showInformation()">
       <ion-icon slot="start" name="information-circle"></ion-icon>
       <ion-card-title>Información</ion-card-title>
+    </ion-item>
+  </div>
+
+  <div class="ion-margin">
+    <ion-item (click)="cerrarSesion()">
+      <ion-icon slot="start" name="log-out"></ion-icon>
+      <ion-card-title>Cerrar sesión</ion-card-title>
     </ion-item>
   </div>
 

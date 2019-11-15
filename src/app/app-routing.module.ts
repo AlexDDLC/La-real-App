@@ -8,19 +8,43 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilPageModule)
   },
   {
     path: 'likes',
-    loadChildren: () => import('./likes/likes.module').then( m => m.LikesPageModule)
+    loadChildren: () => import('./likes/likes.module').then(m => m.LikesPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'chat-person',
-    loadChildren: () => import('./chat-person/chat-person.module').then( m => m.ChatPersonPageModule)
+    loadChildren: () => import('./chat-person/chat-person.module').then(m => m.ChatPersonPageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then(m => m.ChatPageModule)
+  },
+  {
+    path: 'publicar',
+    loadChildren: () => import('./publicar/publicar.module').then(m => m.PublicarPageModule)
+  },
+  {
+    path: 'modal-acount',
+    loadChildren: () => import('./modals/modal-acount/modal-acount.module').then( m => m.ModalAcountPageModule)
+  },
+  {
+    path: 'modalsecurity',
+    loadChildren: () => import('./modals/modalsecurity/modalsecurity.module').then( m => m.ModalsecurityPageModule)
+  },
+  {
+    path: 'modalnotification',
+    loadChildren: () => import('./modals/modalnotification/modalnotification.module').then( m => m.ModalnotificationPageModule)
+  },
+  {
+    path: 'modal-info',
+    loadChildren: () => import('./modals/modal-info/modal-info.module').then( m => m.ModalInfoPageModule)
   }
 ];
 @NgModule({
@@ -29,4 +53,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
