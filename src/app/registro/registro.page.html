@@ -1,0 +1,50 @@
+<ion-content>
+
+  <img (click)="uploadPhoto()" class="userLogo" src="../../assets/icon/registroLogo.jpg" />
+
+  <ion-card class="ion-padding">
+    <ion-list>
+
+      <ion-item class="itemsRegister">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" name="nombre"></ion-input>
+      </ion-item>
+
+      <ion-item class="itemsRegister">
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input type="text" name="apellido"></ion-input>
+      </ion-item>
+
+      <ion-item class="itemsRegister">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" name="email"></ion-input>
+      </ion-item>
+
+      <ion-item class="itemsRegister">
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input type="text" name="nombreUsuario"></ion-input>
+      </ion-item>
+
+      <ion-item class="itemsRegister">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="text" name="contrasena"></ion-input>
+      </ion-item>
+
+      <ion-item class="itemsRegister">
+        <ion-label position="floating">Confirmar Contraseña</ion-label>
+        <ion-input type="text" name="confirmContrasena"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button expand="block" (click)="registrarse()">
+      Registrarse
+    </ion-button>
+  </ion-card>
+
+  <div text-center>
+    <ion-button class="ion-padding" color="medium" (click)="logIn()">
+      Login
+    </ion-button>
+  </div>
+</ion-content>

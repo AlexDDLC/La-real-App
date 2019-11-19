@@ -23,8 +23,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../publicar/publicar.module').then(m => m.PublicarPageModule)
-            // import('../chat-person//chat-person.module').then(m => m.ChatPersonPageModule)
+              import('../discovers/discovers.module').then(m => m.DiscoversPageModule)
           }
         ]
       },
@@ -34,22 +33,12 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../discovers/discovers.module').then(m => m.DiscoversPageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab4',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
               import('../likes/likes.module').then(m => m.LikesPageModule)
           }
         ]
       },
       {
-        path: 'tab5',
+        path: 'tab4',
         children: [
           {
             path: '',

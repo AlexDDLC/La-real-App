@@ -27,10 +27,6 @@ const routes: Routes = [
     loadChildren: () => import('./chat/chat.module').then(m => m.ChatPageModule)
   },
   {
-    path: 'publicar',
-    loadChildren: () => import('./publicar/publicar.module').then(m => m.PublicarPageModule)
-  },
-  {
     path: 'modal-acount',
     loadChildren: () => import('./modals/modal-acount/modal-acount.module').then( m => m.ModalAcountPageModule)
   },
@@ -45,6 +41,10 @@ const routes: Routes = [
   {
     path: 'modal-info',
     loadChildren: () => import('./modals/modal-info/modal-info.module').then( m => m.ModalInfoPageModule)
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   }
 ];
 @NgModule({
