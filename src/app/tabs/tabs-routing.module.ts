@@ -33,16 +33,6 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../likes/likes.module').then(m => m.LikesPageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab4',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
               import('../perfil/perfil.module').then(m => m.PerfilPageModule)
           }
         ]

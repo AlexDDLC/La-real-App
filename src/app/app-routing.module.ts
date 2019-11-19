@@ -11,10 +11,6 @@ const routes: Routes = [
     loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilPageModule)
   },
   {
-    path: 'likes',
-    loadChildren: () => import('./likes/likes.module').then(m => m.LikesPageModule)
-  },
-  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
