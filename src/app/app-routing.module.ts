@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: 'members',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilPageModule)
   },
   {
-    path: 'login',
+    path: '',
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
@@ -24,23 +26,23 @@ const routes: Routes = [
   },
   {
     path: 'modal-acount',
-    loadChildren: () => import('./modals/modal-acount/modal-acount.module').then( m => m.ModalAcountPageModule)
+    loadChildren: () => import('./modals/modal-acount/modal-acount.module').then(m => m.ModalAcountPageModule)
   },
   {
     path: 'modalsecurity',
-    loadChildren: () => import('./modals/modalsecurity/modalsecurity.module').then( m => m.ModalsecurityPageModule)
+    loadChildren: () => import('./modals/modalsecurity/modalsecurity.module').then(m => m.ModalsecurityPageModule)
   },
   {
     path: 'modalnotification',
-    loadChildren: () => import('./modals/modalnotification/modalnotification.module').then( m => m.ModalnotificationPageModule)
+    loadChildren: () => import('./modals/modalnotification/modalnotification.module').then(m => m.ModalnotificationPageModule)
   },
   {
     path: 'modal-info',
-    loadChildren: () => import('./modals/modal-info/modal-info.module').then( m => m.ModalInfoPageModule)
+    loadChildren: () => import('./modals/modal-info/modal-info.module').then(m => m.ModalInfoPageModule)
   },
   {
     path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule)
   }
 ];
 @NgModule({

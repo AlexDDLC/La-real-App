@@ -4,21 +4,21 @@
   <ion-card class="ion-padding">
     <ion-item>
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" name="email"></ion-input>
+      <ion-input type="email" name="email" [(ngModel)]="credentials.email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" name="contrasena"></ion-input>
+      <ion-input type="password" name="contrasena" [(ngModel)]="credentials.password"></ion-input>
     </ion-item>
     <br>
     <ion-button expand="block" (click)="logIn()">
       Iniciar sesión
     </ion-button>
   </ion-card>
-  
+
   <div text-center>
-    <ion-button class="ion-padding" color="medium" (click)="logIn()">
+    <ion-button class="ion-padding" color="medium" routerLink="/registro" routerDirection="forward">
       Regístrate
     </ion-button>
   </div>

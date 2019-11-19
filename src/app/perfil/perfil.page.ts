@@ -4,6 +4,7 @@ import { ModalAcountPage } from '../modals/modal-acount/modal-acount.page';
 import { ModalsecurityPage } from '../modals/modalsecurity/modalsecurity.page';
 import { ModalnotificationPage } from '../modals/modalnotification/modalnotification.page';
 import { ModalInfoPage } from '../modals/modal-info/modal-info.page';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-perfil',
@@ -11,9 +12,14 @@ import { ModalInfoPage } from '../modals/modal-info/modal-info.page';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-
+  user = null;
   constructor(private alert: AlertController,
-    private modalController: ModalController) { }
+    private modalController: ModalController,
+    private auth: AuthService) { }
+
+  ionViewWillEnter() {
+    this.user = this.auth.getUser();
+  }
 
   async  notifications() {
     const modal = await this.modalController.create(
@@ -64,12 +70,11 @@ export class PerfilPage implements OnInit {
           {
             text: 'Aceptar',
             handler: () => {
-              console.log('Aceptar');
+              this.auth.logOut();
             }
           }
         ]
     });
-
     await alert.present();
   }
 
