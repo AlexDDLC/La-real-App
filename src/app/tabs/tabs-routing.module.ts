@@ -29,6 +29,7 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../discovers/discovers.module').then(m => m.DiscoversPageModule)
+              // import('../chat-person/chat-person.module').then(m => m.ChatPersonPageModule)
           }
         ]
       },

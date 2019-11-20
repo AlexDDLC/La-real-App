@@ -1,6 +1,9 @@
 <ion-content>
 
-  <img (click)="uploadPhoto()" class="userLogo" src="../../assets/icon/registroLogo.jpg" />
+  <section (click)="selectImage()">
+    <img *ngIf="croppedImagepath" class="userLogo" src="croppedImagepath" />
+    <img *ngIf="!croppedImagepath" class="userLogo" src="../../assets/icon/registroLogo.jpg" />
+  </section>
 
   <ion-card class="ion-padding">
     <ion-list>
@@ -25,14 +28,60 @@
         <ion-input type="text" name="nombreUsuario"></ion-input>
       </ion-item>
 
+      <ion-list>
+        <ion-radio-group name="sexo">
+          <ion-list-header>
+            <ion-label>Sexo</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Masculino</ion-label>
+            <ion-radio slot="start" value="M"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Femenino</ion-label>
+            <ion-radio slot="start" value="F"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-list>
+        <ion-radio-group name="perefenciasSex">
+          <ion-list-header>
+            <ion-label>Preferencias sexuales</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Hombre</ion-label>
+            <ion-radio slot="start" value="H"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Mujer</ion-label>
+            <ion-radio slot="start" value="M"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Binario</ion-label>
+            <ion-radio slot="start" value="B"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-item>
+        <ion-label>Fecha de nacimiento</ion-label>
+        <ion-datetime min="1950" name="myDate" [(ngModel)]="myDate" value="myDate"></ion-datetime>
+      </ion-item>
+
       <ion-item class="itemsRegister">
         <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="text" name="contrasena"></ion-input>
+        <ion-input type="password" name="contrasena"></ion-input>
       </ion-item>
 
       <ion-item class="itemsRegister">
         <ion-label position="floating">Confirmar Contraseña</ion-label>
-        <ion-input type="text" name="confirmContrasena"></ion-input>
+        <ion-input type="password" name="confirmContrasena"></ion-input>
+      </ion-item>
+
+      <ion-item class="itemsRegister">
+        <ion-label position="floating">Escribe algo sobre ti</ion-label>
+        <ion-textarea description="text" autosize maxlength="150"></ion-textarea>
       </ion-item>
 
     </ion-list>
@@ -42,7 +91,7 @@
     </ion-button>
   </ion-card>
 
-  <div text-center>
+  <div text-center class="ion-padding">
     <ion-button class="ion-padding" color="medium" routerLink="/" routerDirection="forward">
       Login
     </ion-button>
