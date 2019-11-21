@@ -1,8 +1,10 @@
 <ion-content>
 
   <section (click)="selectImage()">
-    <img *ngIf="croppedImagepath" class="userLogo" src="croppedImagepath" />
     <img *ngIf="!croppedImagepath" class="userLogo" src="../../assets/icon/registroLogo.jpg" />
+    <ion-avatar *ngIf="croppedImagepath">
+      <img class="userImage" src="croppedImagepath" />
+    </ion-avatar>
   </section>
 
   <ion-card class="ion-padding">
@@ -30,9 +32,7 @@
 
       <ion-list>
         <ion-radio-group name="sexo">
-          <ion-list-header>
-            <ion-label>Sexo</ion-label>
-          </ion-list-header>
+          <ion-list-header>Sexo</ion-list-header>
           <ion-item>
             <ion-label>Masculino</ion-label>
             <ion-radio slot="start" value="M"></ion-radio>
@@ -46,15 +46,13 @@
 
       <ion-list>
         <ion-radio-group name="perefenciasSex">
-          <ion-list-header>
-            <ion-label>Preferencias sexuales</ion-label>
-          </ion-list-header>
+          <ion-list-header>Preferencias sexuales</ion-list-header>
           <ion-item>
-            <ion-label>Hombre</ion-label>
+            <ion-label>Hombres</ion-label>
             <ion-radio slot="start" value="H"></ion-radio>
           </ion-item>
           <ion-item>
-            <ion-label>Mujer</ion-label>
+            <ion-label>Mujeres</ion-label>
             <ion-radio slot="start" value="M"></ion-radio>
           </ion-item>
           <ion-item>
@@ -83,6 +81,20 @@
         <ion-label position="floating">Escribe algo sobre ti</ion-label>
         <ion-textarea description="text" autosize maxlength="150"></ion-textarea>
       </ion-item>
+
+      <ion-list>
+        <ion-radio-group name="tipoCuenta">
+          <ion-list-header>Tipo de cuenta</ion-list-header>
+          <ion-item>
+            <ion-label>Premium</ion-label>
+            <ion-radio slot="start" value="P"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Free</ion-label>
+            <ion-radio slot="start" value="F"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
 
     </ion-list>
 

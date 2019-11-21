@@ -6,7 +6,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { File } from '@ionic-native/file/ngx';
-// import { Crop } from '@ionic-native/crop/ngx';
+import { Crop } from '@ionic-native/crop/ngx';
 
 @Component({
   selector: 'app-registro',
@@ -20,7 +20,7 @@ export class RegistroPage {
 
   imagePickerOptions = {
     maximumImagesCount: 1,
-    quality: 50
+    quality: 100
   };
 
   public myDate: string = new Date().toISOString();
@@ -30,7 +30,7 @@ export class RegistroPage {
     private router: Router,
     private geolocation: Geolocation,
     private camera: Camera,
-    // public crop: Crop,
+    private crop: Crop,
     public imagePicker: ImagePicker,
     private file: File,
     public actionSheetController: ActionSheetController) { }
@@ -47,7 +47,7 @@ export class RegistroPage {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
       // let base64Image = 'data:image/jpeg;base64,' + imageData;
-      // this.cropImage(imageData)
+       this.cropImage(imageData)
     }, (err) => {
       // Handle error
     });
@@ -80,17 +80,17 @@ export class RegistroPage {
     await actionSheet.present();
   }
 
-  // cropImage(fileUrl) {
-  //   this.crop.crop(fileUrl, { quality: 50 })
-  //     .then(
-  //       newPath => {
-  //         this.showCroppedImage(newPath.split('?')[0])
-  //       },
-  //       error => {
-  //         alert('Error cropping image' + error);
-  //       }
-  //     );
-  // }
+  cropImage(fileUrl) {
+    this.crop.crop(fileUrl, { quality: 100 })
+      .then(
+        newPath => {
+          this.showCroppedImage(newPath.split('?')[0])
+        },
+        error => {
+          alert('Error cropping image' + error);
+        }
+      );
+  }
 
   showCroppedImage(ImagePath) {
     this.isLoading = true;

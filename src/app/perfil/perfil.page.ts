@@ -78,7 +78,6 @@ export class PerfilPage implements OnInit {
     await alert.present();
   }
 
-
   ngOnInit() {
   }
 
