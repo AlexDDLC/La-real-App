@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AlertController, ActionSheetController } from '@ionic/angular';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { File } from '@ionic-native/file/ngx';
@@ -15,6 +15,7 @@ import { Crop } from '@ionic-native/crop/ngx';
 })
 export class RegistroPage {
 
+  // Imagen
   croppedImagepath = "";
   isLoading = false;
 
@@ -22,6 +23,10 @@ export class RegistroPage {
     maximumImagesCount: 1,
     quality: 100
   };
+
+  //Geolocalizacion
+  lat: any;
+  long: any;
 
   public myDate: string = new Date().toISOString();
 
@@ -33,12 +38,15 @@ export class RegistroPage {
     private crop: Crop,
     public imagePicker: ImagePicker,
     private file: File,
-    public actionSheetController: ActionSheetController) { }
+    public actionSheetController: ActionSheetController) {
+    this.getGeolocation();
+  }
 
   pickImage(sourceType) {
     const options: CameraOptions = {
       quality: 100,
       sourceType: sourceType,
+      correctOrientation: true,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
@@ -47,36 +55,37 @@ export class RegistroPage {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
       // let base64Image = 'data:image/jpeg;base64,' + imageData;
-       this.cropImage(imageData)
+      this.cropImage(imageData)
     }, (err) => {
       // Handle error
     });
   }
 
   async selectImage() {
-    const actionSheet = await this.actionSheetController.create({
-      header: "Seleccionar la fuente de la imagen",
-      buttons: [{
-        text: 'Galería ',
-        icon: 'images',
-        handler: () => {
-          this.pickImage(this.camera.PictureSourceType.PHOTOLIBRARY);
-        }
-      },
+    const actionSheet = await this.actionSheetController.create(
       {
-        text: 'Cámara',
-        icon: 'camera',
-        handler: () => {
-          this.pickImage(this.camera.PictureSourceType.CAMERA);
+        header: "Seleccionar la fuente de la imagen",
+        buttons: [{
+          text: 'Galería ',
+          icon: 'images',
+          handler: () => {
+            this.pickImage(this.camera.PictureSourceType.PHOTOLIBRARY);
+          }
+        },
+        {
+          text: 'Cámara',
+          icon: 'camera',
+          handler: () => {
+            this.pickImage(this.camera.PictureSourceType.CAMERA);
+          }
+        },
+        {
+          text: 'Cancel',
+          icon: 'close',
+          role: 'cancel'
         }
-      },
-      {
-        text: 'Cancel',
-        icon: 'close',
-        role: 'cancel'
-      }
-      ]
-    });
+        ]
+      });
     await actionSheet.present();
   }
 
@@ -87,7 +96,7 @@ export class RegistroPage {
           this.showCroppedImage(newPath.split('?')[0])
         },
         error => {
-          alert('Error cropping image' + error);
+          // alert('Error cropping image' + error);
         }
       );
   }
@@ -105,6 +114,13 @@ export class RegistroPage {
     }, error => {
       alert('Error in showing image' + error);
       this.isLoading = false;
+    });
+  }
+
+  getGeolocation() {
+    this.geolocation.getCurrentPosition().then((geoloposition: Geoposition) => {
+      this.lat = geoloposition.coords.latitude;
+      this.long = geoloposition.coords.longitude;
     });
   }
 }

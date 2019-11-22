@@ -3,7 +3,7 @@
   <section (click)="selectImage()">
     <img *ngIf="!croppedImagepath" class="userLogo" src="../../assets/icon/registroLogo.jpg" />
     <ion-avatar *ngIf="croppedImagepath">
-      <img class="userImage" src="croppedImagepath" />
+      <img class="userImage" [src]="croppedImagepath" />
     </ion-avatar>
   </section>
 
