@@ -24,8 +24,7 @@ export class LoginPage implements OnInit {
     this.auth.login(this.credentials).subscribe(async res => {
       if (res) {
         this.router.navigateByUrl('/members');
-      }
-      else {
+      } else {
         const alert = await this.alertCtrl.create(
           {
             header: 'login fallido',

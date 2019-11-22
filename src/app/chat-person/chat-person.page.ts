@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chat-person',
@@ -26,11 +27,11 @@ export class ChatPersonPage implements OnInit {
     }
   ];
 
-  currentUser = 'Alex'
+  currentUser = 'Alex';
   newMsg = '';
-  @ViewChild(IonContent, { static: false }) content: IonContent
+  @ViewChild(IonContent, { static: false }) content:IonContent
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   sendMessage() {
     this.messages.push(
@@ -48,6 +49,8 @@ export class ChatPersonPage implements OnInit {
   }
 
   ngOnInit() {
+    const data = this.route.snapshot.paramMap.get('name');
+    console.log(data);
   }
 
 }
