@@ -8,7 +8,7 @@
   
   <ion-content>
     <ion-list no-padding>
-      <ion-item *ngFor="let chat of chatData" lines="none" (click)="openChat()">
+      <ion-item *ngFor="let chat of chatData" lines="none" (click)="openChat(chat.name)">
         <div class="borderBottomLine"></div>
         <div class="listSection">
           <div class="UserimgSection">

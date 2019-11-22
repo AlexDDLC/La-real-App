@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesAPIService } from '../services/services-api.service';
-import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { DataService } from './../services/data.service';
 
 @Component({
   selector: 'app-chat',
@@ -11,8 +12,9 @@ export class ChatPage implements OnInit {
 
   data: any[];
   public chatData: Array<any>;
+  public name: any;
   constructor(
-    private getDataChat: ServicesAPIService) { }
+    private getDataChat: ServicesAPIService, private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
     this.chatData = [
@@ -110,8 +112,13 @@ export class ChatPage implements OnInit {
         "sendTime": '17:40'
       }
     ];
+
   }
 
-  async openChat() {  }
+    openChat(name) {
+      console.log(name);
+      this.router.navigateByUrl('/chat-person/kkk');
+      this.dataService.setData(name, this.chatData);
+  }
 
 }

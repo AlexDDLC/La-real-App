@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { DataResolverService } from './resolver/data-resolver.service';
 
 const routes: Routes = [
   {
     path: 'members',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'perfil',
@@ -17,7 +18,8 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
-    path: 'chat-person',
+    path: 'chat-person/:name',
+    resolve: {special: DataResolverService},
     loadChildren: () => import('./chat-person/chat-person.module').then(m => m.ChatPersonPageModule)
   },
   {
@@ -51,4 +53,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
