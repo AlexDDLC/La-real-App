@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent } from '@ionic/angular';
+import { IonContent, NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -29,9 +29,9 @@ export class ChatPersonPage implements OnInit {
 
   currentUser = 'Alex';
   newMsg = '';
-  @ViewChild(IonContent, { static: false }) content:IonContent
+  @ViewChild(IonContent, { static: false }) content: IonContent
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private navCtrol: NavController) { }
 
   sendMessage() {
     this.messages.push(
@@ -51,6 +51,10 @@ export class ChatPersonPage implements OnInit {
   ngOnInit() {
     const data = this.route.snapshot.paramMap.get('name');
     console.log(data);
+  }
+
+  goBack() {
+    this.navCtrol.pop();
   }
 
 }
