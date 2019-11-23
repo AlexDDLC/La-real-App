@@ -38,15 +38,12 @@ export class RegistroPage {
     private crop: Crop,
     public imagePicker: ImagePicker,
     private file: File,
-    public actionSheetController: ActionSheetController) {
-    this.getGeolocation();
-  }
+    public actionSheetController: ActionSheetController) { }
 
   pickImage(sourceType) {
     const options: CameraOptions = {
       quality: 100,
       sourceType: sourceType,
-      correctOrientation: true,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
@@ -62,30 +59,29 @@ export class RegistroPage {
   }
 
   async selectImage() {
-    const actionSheet = await this.actionSheetController.create(
-      {
-        header: "Seleccionar la fuente de la imagen",
-        buttons: [{
-          text: 'Galería ',
-          icon: 'images',
-          handler: () => {
-            this.pickImage(this.camera.PictureSourceType.PHOTOLIBRARY);
-          }
-        },
-        {
-          text: 'Cámara',
-          icon: 'camera',
-          handler: () => {
-            this.pickImage(this.camera.PictureSourceType.CAMERA);
-          }
-        },
-        {
-          text: 'Cancel',
-          icon: 'close',
-          role: 'cancel'
+    const actionSheet = await this.actionSheetController.create({
+      header: "Seleccionar la fuente de la imagen",
+      buttons: [{
+        text: 'Galería ',
+        icon: 'images',
+        handler: () => {
+          this.pickImage(this.camera.PictureSourceType.PHOTOLIBRARY);
         }
-        ]
-      });
+      },
+      {
+        text: 'Cámara',
+        icon: 'camera',
+        handler: () => {
+          this.pickImage(this.camera.PictureSourceType.CAMERA);
+        }
+      },
+      {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel'
+      }
+      ]
+    });
     await actionSheet.present();
   }
 
@@ -116,7 +112,6 @@ export class RegistroPage {
       this.isLoading = false;
     });
   }
-
   getGeolocation() {
     this.geolocation.getCurrentPosition().then((geoloposition: Geoposition) => {
       this.lat = geoloposition.coords.latitude;

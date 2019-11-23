@@ -13,8 +13,8 @@ export class ChatPage implements OnInit {
   data: any[];
   public chatData: Array<any>;
   public name: any;
-  constructor(
-    private getDataChat: ServicesAPIService, private router: Router, private dataService: DataService) { }
+  constructor(private getDataChat: ServicesAPIService, 
+    private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
     this.chatData = [
