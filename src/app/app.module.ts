@@ -16,6 +16,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { Crop } from '@ionic-native/crop/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,9 +28,10 @@ import { Crop } from '@ionic-native/crop/ngx';
     SplashScreen,
     Camera,
     ImagePicker,
+    Geolocation,
+    NativeGeocoder,
     File,
     Crop,
-    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
