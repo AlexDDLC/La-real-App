@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="ion-text-center">
       Discovers
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ion-slides>
+
+    <ion-slide *ngFor="let slide of slides">
+
+      <ion-card>
+        <img [src]="slide.img">
+        <ion-card-header>
+          <ion-card-subtitle class="address">{{geoAddress}}</ion-card-subtitle>
+          <br>
+          <ion-card-subtitle class="nickname">{{slide.nickname}}</ion-card-subtitle>
+          <ion-card-title>{{slide.name}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>{{slide.about}}</p>
+        </ion-card-content>
+
+        <ion-button (click)="goChat()">
+          Chat
+        </ion-button>
+      </ion-card>
+
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>
